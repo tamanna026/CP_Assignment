@@ -1,4 +1,4 @@
-https://codeforces.com/problemset/gymProblem/102961/A
+//    https://codeforces.com/problemset/gymProblem/102961/A
 
 #include<bits/stdc++.h>
 using namespace std;
