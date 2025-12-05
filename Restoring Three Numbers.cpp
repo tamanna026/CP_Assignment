@@ -1,23 +1,25 @@
 //https://codeforces.com/problemset/problem/1154/A
 
+
 #include <bits/stdc++.h>
 using namespace std;
 
 int main()
 {
-    vector<long long>v(4);
+    int x[4];
 
-    for(int i=0;i<4;i++)
+    for (int i=0;i<4;i++)
     {
-      cin>>v[i];
-    } 
+        cin>>x[i];
+    }
 
-    sort(v.begin(), v.end());
-
-    long long sum=v[3];
-    long long a=sum-v[2];
-    long long b=sum-v[1];
-    long long c=sum-v[0];
-
+    sort(x, x + 4);
+    int a=x[3]-x[2];
+    int b=x[3]-x[1];
+    int c=x[3]-x[0];
+ 
     cout<<a<<" "<<b<<" "<<c<<endl;
+ 
+    return 0;
+
 }
