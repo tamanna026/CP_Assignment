@@ -1,0 +1,44 @@
+// problem-7
+
+#include <bits/stdc++.h>
+using namespace std;
+
+vector<int>dijkstraMatrix(int V,vector<vector<int>>& mat,int src) 
+{
+    vector<int>dist(V,INT_MAX),vis(V,0);
+    dist[src]=0;
+
+    for (int i=0;i<V;i++)
+  {
+        int u=-1;
+        for (int j=0;j<V;j++)
+            if (!vis[j] && (u==-1||dist[j]<dist[u])) u=j;
+
+        vis[u]=1;
+
+        for (int v=0;v<V;v++)
+            if (mat[u][v]!=0&&dist[u]+mat[u][v]<dist[v])
+                dist[v]=dist[u]+mat[u][v];
+    }
+
+    return dist;
+}
+
+int main()
+{
+    int V;
+    cin>>V;
+
+    vector<vector<int>>mat(V,vector<int>(V));
+    for (int i=0;i<V;i++)
+        for (int j=0;j<V;j++)
+            cin>>mat[i][j];
+
+    int src;
+    cin>>src;
+
+    vector<int>ans=dijkstraMatrix(V,mat,src);
+
+    for(int x:ans) cout<<x<<" ";
+return 0;
+}
